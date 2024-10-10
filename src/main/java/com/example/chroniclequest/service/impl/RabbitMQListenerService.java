@@ -57,7 +57,7 @@ public class RabbitMQListenerService {
 //            List<HeritageSiteEntity> heritageSiteList = heritageSiteInterface.findHeritageSiteNearby(rabbitMQDto.getLat(),
 //                    rabbitMQDto.getLon(), 5.0);
             List<TouristSites> touristSites = heritageSiteInterface.findTouristSitesNearby(rabbitMQDto.getLat(),
-                    rabbitMQDto.getLon(), 5.0);
+                    rabbitMQDto.getLon(), rabbitMQDto.getRadius());
             logger.info("heritage sites returned from mongo");
             String jsonHeritageSites = objectMapper.writeValueAsString(touristSites);
             redisTemplate.opsForValue().set(StringUtils.REDIS_KEY_HERITAGE + rabbitMQDto.getSessionId(), jsonHeritageSites);

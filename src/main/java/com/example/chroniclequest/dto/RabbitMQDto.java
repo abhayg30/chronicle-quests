@@ -9,6 +9,7 @@ public class RabbitMQDto {
     private String sessionId;
     private double lat;
     private double lon;
+    private double radius;
 
     public String getSessionId() {
         return sessionId;
@@ -32,5 +33,13 @@ public class RabbitMQDto {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 }
