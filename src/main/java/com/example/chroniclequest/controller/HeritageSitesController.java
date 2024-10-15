@@ -41,7 +41,7 @@ public class HeritageSitesController {
     }
 
     @GetMapping("/places/nearby")
-    @CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<TouristSites>> getHeritageSites(@RequestParam double radius, @RequestParam String sessionId) {
 
         logger.info("Request received for controller /places/nearby");
@@ -59,7 +59,7 @@ public class HeritageSitesController {
     }
 
     @GetMapping("/places/suburb")
-    @CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<TouristSites>> getBySuburb(@RequestParam String suburb, @RequestParam double radius){
         logger.info("Request received for controller /places/suburb");
         try {
@@ -70,7 +70,7 @@ public class HeritageSitesController {
         }
     }
     @GetMapping("/autocomplete")
-    @CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<Suburb>> getSuburbByRegex(@RequestParam String suburb) {
         try{
             List<Suburb> suburbs = heritageSiteInterface.findByNameRegex(suburb);
