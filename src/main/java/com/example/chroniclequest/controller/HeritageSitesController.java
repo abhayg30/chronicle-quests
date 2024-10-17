@@ -42,7 +42,7 @@ public class HeritageSitesController {
 
     @GetMapping("/places/nearby")
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public ResponseEntity<List<TouristSites>> getHeritageSites(@RequestParam double radius, @RequestParam String sessionId) {
+    public ResponseEntity<List<TouristSites>> getHeritageSites(@RequestParam String sessionId) {
 
         logger.info("Request received for controller /places/nearby");
         String jsonHeritageSites = redisTemplate.opsForValue().get(StringUtils.REDIS_KEY_HERITAGE+sessionId);
