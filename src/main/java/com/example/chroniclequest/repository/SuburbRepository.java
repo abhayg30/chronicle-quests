@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface SuburbRepository extends MongoRepository<Suburb, String> {
 
-    @Query("{ 'name': ?0, 'postcode': { $regex: '^2' } }")
-    Suburb findSuburbByNameAndAndPostcodeStartingWith2(String suburb);
+    @Query("{ 'name': ?0}")
+    Suburb findSuburbByName(String suburb);
 
     List<Suburb> findByNameRegex(String suburb);
 }

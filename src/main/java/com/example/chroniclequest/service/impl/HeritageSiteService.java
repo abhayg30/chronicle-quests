@@ -67,10 +67,11 @@ public class HeritageSiteService implements HeritageSiteInterface {
 
     private Map<String, Double> findSuburbLatLng(String suburb) {
         try{
-            Suburb suburbDetails = suburbRepository.findSuburbByNameAndAndPostcodeStartingWith2(suburb);
+            Suburb suburbDetails = suburbRepository.findSuburbByName(suburb);
+            assert suburbDetails != null;
             Map<String, Double> suburbLocation = new HashMap<>();
-            suburbLocation.put(StringUtils.LATITUDE, suburbDetails.getLatitude());
-            suburbLocation.put(StringUtils.LONGITUDE, suburbDetails.getLongitude());
+            suburbLocation.put(StringUtils.LATITUDE, suburbDetails.getGeometry().getY());
+            suburbLocation.put(StringUtils.LONGITUDE, suburbDetails.getGeometry().getX());
             return suburbLocation;
         } catch (Exception e){
             return null;

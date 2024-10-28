@@ -63,7 +63,7 @@ public class HeritageSitesController {
     public ResponseEntity<List<TouristSites>> getBySuburb(@RequestParam String suburb, @RequestParam double radius){
         logger.info("Request received for controller /places/suburb");
         try {
-            List<TouristSites> sites = heritageSiteInterface.findHeritageSitesNearSuburb(suburb.toUpperCase(), radius);
+            List<TouristSites> sites = heritageSiteInterface.findHeritageSitesNearSuburb(suburb, radius);
             return ResponseEntity.ok(sites);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
