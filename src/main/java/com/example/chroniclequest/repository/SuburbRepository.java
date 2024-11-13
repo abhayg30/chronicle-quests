@@ -9,7 +9,7 @@ import java.util.List;
 public interface SuburbRepository extends MongoRepository<Suburb, String> {
 
     @Query("{ 'name': ?0, 'postcode': { $regex: '^2' } }")
-    Suburb findSuburbByNameAndAndPostcodeStartingWith2(String suburb);
+    List<Suburb> findSuburbByNameAndAndPostcodeStartingWith2(String suburb);
 
     List<Suburb> findByNameRegex(String suburb);
 }
