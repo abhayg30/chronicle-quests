@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/chronicle-quest")
 public class HeritageSitesController {
 
     private static final Logger logger = LoggerFactory.getLogger(HeritageSitesController.class);
